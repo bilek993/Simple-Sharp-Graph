@@ -36,8 +36,13 @@ namespace Simple_Sharp_Graph
         private void OnClickMenuOpen(object sender, RoutedEventArgs e)
         {
             var newGraph = new BidirectionalGraph<object, IEdge<object>>();
+            var filePath = SimpleFileDialog.show();
+            if (filePath == null)
+            {
+                return;
+            }
 
-            _fileTool = new FileTool("C:\\test.txt");
+            _fileTool = new FileTool(filePath);
             _fileTool.OpenFile();
             newGraph.AddVertexRange(_fileTool.GenerateVertexes());
             newGraph.AddEdgeRange(_fileTool.GenerateEdges());
