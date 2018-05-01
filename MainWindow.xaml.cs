@@ -21,9 +21,22 @@ namespace Simple_Sharp_Graph
     /// </summary>
     public partial class MainWindow : Window
     {
+        private FileTool _fileTool;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnClickMenuOpen(object sender, RoutedEventArgs e)
+        {
+            var newGraph = new BidirectionalGraph<object, IEdge<object>>();
+
+            _fileTool = new FileTool("C:\\test.txt");
+            _fileTool.OpenFile();
+            newGraph.AddVertexRange(_fileTool.GenerateVertexes());
+
+            MainGraphLayout.Graph = newGraph;
         }
     }
 }

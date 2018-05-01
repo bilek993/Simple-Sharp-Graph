@@ -11,10 +11,13 @@
         <Menu DockPanel.Dock="Top" Height="20">
             <MenuItem Header="_File">
                 <MenuItem Header="New"/>
-                <MenuItem Header="Open"/>
+                <MenuItem Header="Open" Click="OnClickMenuOpen"/>
                 <MenuItem Header="Exit"/>
             </MenuItem>
         </Menu>
-        <graphsharp:GraphLayout x:Name="MainGraphLayout"/>
+        <graphsharp:GraphLayout x:Name="MainGraphLayout"
+                                LayoutAlgorithmType="FR"
+                                OverlapRemovalAlgorithmType="FSA"
+                                HighlightAlgorithmType="Simple"/>
     </DockPanel>
 </Window>
