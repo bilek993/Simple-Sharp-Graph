@@ -42,17 +42,32 @@ namespace Simple_Sharp_Graph
                 return;
             }
 
-            _fileTool = new FileTool(filePath);
-            _fileTool.OpenFile();
-            newGraph.AddVertexRange(_fileTool.GenerateVertexes());
-            newGraph.AddEdgeRange(_fileTool.GenerateEdges());
-
-            MainGraphLayout.Graph = newGraph;
+            try
+            {
+                _fileTool = new FileTool(filePath);
+                _fileTool.OpenFile();
+                newGraph.AddVertexRange(_fileTool.GenerateVertexes());
+                newGraph.AddEdgeRange(_fileTool.GenerateEdges());
+                MainGraphLayout.Graph = newGraph;
+            }
+            catch (KeyNotFoundException)
+            {
+                showError("Key for edge not found!");
+            }
+            catch (Exception)
+            {
+                showError("Unknown exception!");
+            }
         }
 
         private void OnClickMenuExit(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void showError(String message)
+        {
+            MessageBox.Show(message + " Building graph has been aborted.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
