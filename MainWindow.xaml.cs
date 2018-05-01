@@ -35,6 +35,7 @@ namespace Simple_Sharp_Graph
             _fileTool = new FileTool("C:\\test.txt");
             _fileTool.OpenFile();
             newGraph.AddVertexRange(_fileTool.GenerateVertexes());
+            newGraph.AddEdgeRange(_fileTool.GenerateEdges());
 
             MainGraphLayout.Graph = newGraph;
         }
