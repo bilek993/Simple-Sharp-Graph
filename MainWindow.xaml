@@ -10,9 +10,9 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="20">
             <MenuItem Header="_File">
-                <MenuItem Header="New"/>
+                <MenuItem Header="New" Click="OnClickMenuNew"/>
                 <MenuItem Header="Open" Click="OnClickMenuOpen"/>
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="OnClickMenuExit"/>
             </MenuItem>
         </Menu>
         <graphsharp:GraphLayout x:Name="MainGraphLayout"

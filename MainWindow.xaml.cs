@@ -28,6 +28,11 @@ namespace Simple_Sharp_Graph
             InitializeComponent();
         }
 
+        private void OnClickMenuNew(object sender, RoutedEventArgs e)
+        {
+            MainGraphLayout.Graph = new BidirectionalGraph<object, IEdge<object>>();
+        }
+
         private void OnClickMenuOpen(object sender, RoutedEventArgs e)
         {
             var newGraph = new BidirectionalGraph<object, IEdge<object>>();
@@ -38,6 +43,11 @@ namespace Simple_Sharp_Graph
             newGraph.AddEdgeRange(_fileTool.GenerateEdges());
 
             MainGraphLayout.Graph = newGraph;
+        }
+
+        private void OnClickMenuExit(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
