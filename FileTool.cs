@@ -18,7 +18,7 @@ namespace Simple_Sharp_Graph
 
         public void OpenFile()
         {
-            using (StreamReader stream = new StreamReader(_pathToFile))
+            using (var stream = new StreamReader(_pathToFile))
             {
                 string line;
                 _fileData = new List<string>();
@@ -33,9 +33,9 @@ namespace Simple_Sharp_Graph
         public List<string> GenerateVertexes()
         {
             var vertexesList = new List<string>();
-            Regex regex = new Regex("\\.[a-zA-Z0-9]+");
+            var regex = new Regex("\\.[a-zA-Z0-9]+");
 
-            foreach (string line in _fileData)
+            foreach (var line in _fileData)
             {
                 foreach (Match matchedRegex in regex.Matches(line))
                 {
@@ -49,14 +49,14 @@ namespace Simple_Sharp_Graph
         public List<Edge<object>> GenerateEdges()
         {
             var edgesList = new List<Edge<object>>();
-            Regex regex = new Regex("([a-zA-Z0-9]+)\\-\\>([a-zA-Z0-9]+)");
+            var regex = new Regex("([a-zA-Z0-9]+)\\-\\>([a-zA-Z0-9]+)");
 
-            foreach (string line in _fileData)
+            foreach (var line in _fileData)
             {
                 foreach (Match matchedRegex in regex.Matches(line))
                 {
-                    string source = matchedRegex.Groups[1].Value;
-                    string target = matchedRegex.Groups[2].Value;
+                    var source = matchedRegex.Groups[1].Value;
+                    var target = matchedRegex.Groups[2].Value;
 
                     edgesList.Add(new Edge<object>(source, target));
                 }
