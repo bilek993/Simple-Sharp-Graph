@@ -9,7 +9,7 @@ namespace Simple_Sharp_Graph
 {
     static class SimpleFileDialog
     {
-        public static string show()
+        public static string Show()
         {
             var fileDialog = new OpenFileDialog();
             var result = fileDialog.ShowDialog();

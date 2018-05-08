@@ -36,7 +36,7 @@ namespace Simple_Sharp_Graph
         private void OnClickMenuOpen(object sender, RoutedEventArgs e)
         {
             var newGraph = new BidirectionalGraph<object, IEdge<object>>();
-            var filePath = SimpleFileDialog.show();
+            var filePath = SimpleFileDialog.Show();
             if (filePath == null)
             {
                 return;
@@ -52,11 +52,11 @@ namespace Simple_Sharp_Graph
             }
             catch (KeyNotFoundException)
             {
-                showError("Key for edge not found!");
+                ShowError("Key for edge not found!");
             }
             catch (Exception)
             {
-                showError("Unknown exception!");
+                ShowError("Unknown exception!");
             }
         }
 
@@ -65,7 +65,7 @@ namespace Simple_Sharp_Graph
             Environment.Exit(0);
         }
 
-        private void showError(String message)
+        private void ShowError(string message)
         {
             MessageBox.Show(message + " Building graph has been aborted.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
